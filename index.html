@@ -43,9 +43,7 @@
         <div class="col-2">
           <div class="d-flex justify-content-between bg-warning p-2 fs-3">
             <span class="mdi mdi-timer-outline"></span>
-            <p>
-              +10
-            </p>
+            <p id="autoPower"></p>
           </div>
         </div>
       </div>
@@ -73,14 +71,14 @@
               <h4>
                 AUTO UPGRADES
               </h4>
-              <button type="button" class="btn btn-danger">
-                1k <span class="mdi mdi-cheese"></span>
+              <button onclick="buyMouse()" type="button" class="btn btn-danger">
+                <span id="mousePrice"></span><span class="mdi mdi-cheese"></span>
               </button>
               <p>
                 mousetronaut | +10/3s
               </p>
-              <button type="button" class="btn btn-danger">
-                50k <span class="mdi mdi-cheese"></span>
+              <button onclick="buySpaceStation()" type="button" class="btn btn-danger">
+                <span id="spaceStationPrice"></span><span class="mdi mdi-cheese"></span>
               </button>
               <p>
                 space station | +100/3s

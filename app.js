@@ -1,8 +1,6 @@
 // SECTION global variable
 
-let cheese = 0
-
-let power = 0
+let cheese = 100000
 
 let clickUpgrades = [
   {
@@ -29,7 +27,7 @@ let autoUpgrades = [
   },
   {
     name: 'space station',
-    price: 50000,
+    price: 10000,
     quantity: 0,
     bonus: 100
   }
@@ -40,6 +38,8 @@ let autoUpgrades = [
 
 // SECTION logic functions
 
+
+// NOTE Mine functions
 function mine() {
 
   let clickPower = 0
@@ -53,7 +53,21 @@ function mine() {
   drawCheese()
 }
 
+function autoMine() {
 
+  let minePower = 0
+
+  for (let i = 0; i < autoUpgrades.length; i++) {
+    const upgrade = autoUpgrades[i];
+    minePower = upgrade.bonus * upgrade.quantity
+    cheese += minePower
+  }
+
+  drawCheese()
+
+}
+
+// NOTE Click upgrade functions
 function buyClickUpgradeKnife() {
   if (clickUpgrades[0].price <= cheese) {
     clickUpgrades[0].quantity++
@@ -66,9 +80,6 @@ function buyClickUpgradeKnife() {
   drawPower()
   drawKnifePrice()
   drawCheese()
-  console.log("quantity", clickUpgrades[0].quantity);
-  console.log("price", clickUpgrades[0].price);
-  console.log("bonus", clickUpgrades[0].bonus);
 
 }
 
@@ -87,16 +98,46 @@ function buyClickUpgradeDrill() {
 
 }
 
+// NOTE Auto Upgrade Functions
+function buyMouse() {
+  if (autoUpgrades[0].price <= cheese) {
+    autoUpgrades[0].quantity++
+    cheese -= autoUpgrades[0].price
+    autoUpgrades[0].price += 250
+  }
+
+
+  drawAutoPower()
+  drawMousePrice()
+  drawCheese()
+
+}
+
+function buySpaceStation() {
+  if (autoUpgrades[1].price <= cheese) {
+    autoUpgrades[1].quantity++
+    cheese -= autoUpgrades[1].price
+    autoUpgrades[1].price += 1000
+  }
+
+  drawAutoPower()
+  drawSpaceStationPrice()
+  drawCheese()
+
+}
+
 
 // !SECTION
 
 // SECTION draw functions
 
+// NOTE cheese draws
 function drawCheese() {
   const cheeseElem = document.getElementById('cheeseWallet')
   cheeseElem.innerText = `${cheese}`
 }
 
+// NOTE Click upgrade draws
 function drawKnifePrice() {
   const knifeElem = document.getElementById('knifePrice')
   knifeElem.innerText = `${clickUpgrades[0].price}`
@@ -127,6 +168,20 @@ function drawDrillPower() {
   drillPowerElem.innerText = `${clickUpgrades[1].quantity * 15}`
 }
 
+// NOTE Auto upgrade draws
+function drawMousePrice() {
+  const mouseElem = document.getElementById('mousePrice')
+  mouseElem.innerText = `${autoUpgrades[0].price}`
+}
+
+function drawSpaceStationPrice() {
+  const spaceStationElem = document.getElementById('spaceStationPrice')
+  spaceStationElem.innerText = `${autoUpgrades[1].price}`
+}
+
+
+
+// NOTE power draws 
 function drawPower() {
   let clickPower = 0
 
@@ -139,6 +194,18 @@ function drawPower() {
   drawPowerElem.innerText = clickPower.toString()
 }
 
+function drawAutoPower() {
+  let autoPower = 0
+
+  for (let i = 0; i < autoUpgrades.length; i++) {
+    const autoUpgrade = autoUpgrades[i];
+    autoPower += autoUpgrade.bonus * autoUpgrade.quantity
+  }
+
+  const drawAutoPowerElem = document.getElementById('autoPower')
+  drawAutoPowerElem.innerText = autoPower.toString()
+}
+
 
 
 
@@ -148,12 +215,22 @@ function drawPower() {
 
 // SECTION page load
 
-drawDrillAmount()
+drawCheese()
+
 drawDrillPower()
 drawKnifePower()
+
+drawDrillAmount()
 drawKnifeAmount()
+
 drawKnifePrice()
 drawDrillPrice()
-drawPower()
+drawMousePrice()
+drawSpaceStationPrice()
 
+
+
+drawPower()
+drawAutoPower()
+setInterval(autoMine, 3000)
 // !SECTION
