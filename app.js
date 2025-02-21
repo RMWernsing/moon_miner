@@ -1,6 +1,6 @@
 // SECTION global variable
 
-let cheese = 100000
+let cheese = 0
 
 let clickUpgrades = [
   {
@@ -23,7 +23,7 @@ let autoUpgrades = [
     name: 'mousetronaut',
     price: 1000,
     quantity: 0,
-    bonus: 10
+    bonus: 50
   },
   {
     name: 'space station',
@@ -106,7 +106,8 @@ function buyMouse() {
     autoUpgrades[0].price += 250
   }
 
-
+  drawMouseAmount()
+  drawMousePower()
   drawAutoPower()
   drawMousePrice()
   drawCheese()
@@ -120,6 +121,8 @@ function buySpaceStation() {
     autoUpgrades[1].price += 1000
   }
 
+  drawSpaceStationAmount()
+  drawSpaceStationPower()
   drawAutoPower()
   drawSpaceStationPrice()
   drawCheese()
@@ -170,15 +173,34 @@ function drawDrillPower() {
 
 // NOTE Auto upgrade draws
 function drawMousePrice() {
-  const mouseElem = document.getElementById('mousePrice')
-  mouseElem.innerText = `${autoUpgrades[0].price}`
+  const mousePriceElem = document.getElementById('mousePrice')
+  mousePriceElem.innerText = `${autoUpgrades[0].price}`
 }
 
 function drawSpaceStationPrice() {
-  const spaceStationElem = document.getElementById('spaceStationPrice')
-  spaceStationElem.innerText = `${autoUpgrades[1].price}`
+  const spaceStationPriceElem = document.getElementById('spaceStationPrice')
+  spaceStationPriceElem.innerText = `${autoUpgrades[1].price}`
 }
 
+function drawMouseAmount() {
+  const mouseAmountElem = document.getElementById('mouseAmount')
+  mouseAmountElem.innerText = `${autoUpgrades[0].quantity}`
+}
+
+function drawMousePower() {
+  const mousePowerElem = document.getElementById('mousePower')
+  mousePowerElem.innerText = `${autoUpgrades[0].quantity * 50}`
+}
+
+function drawSpaceStationAmount() {
+  const spaceStationAmountElem = document.getElementById('spaceStationAmount')
+  spaceStationAmountElem.innerText = `${autoUpgrades[1].quantity}`
+}
+
+function drawSpaceStationPower() {
+  const spaceStationPowerElem = document.getElementById('spaceStationPower')
+  spaceStationPowerElem.innerText = `${autoUpgrades[1].quantity * 100}`
+}
 
 
 // NOTE power draws 
@@ -219,9 +241,13 @@ drawCheese()
 
 drawDrillPower()
 drawKnifePower()
+drawMousePower()
+drawSpaceStationPower()
 
 drawDrillAmount()
 drawKnifeAmount()
+drawMouseAmount()
+drawSpaceStationAmount()
 
 drawKnifePrice()
 drawDrillPrice()
@@ -232,5 +258,6 @@ drawSpaceStationPrice()
 
 drawPower()
 drawAutoPower()
+
 setInterval(autoMine, 3000)
 // !SECTION
