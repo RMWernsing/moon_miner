@@ -28,9 +28,7 @@
       <div class="row text-light justify-content-center">
         <div class="col-2">
           <div class="d-flex justify-content-between bg-warning p-2 fs-3">
-            <p>
-              +10
-            </p>
+            <span id="power"></span>
             <span class="mdi mdi-cursor-default-click-outline"></span>
           </div>
         </div>
@@ -59,16 +57,16 @@
                 CLICK UPGRADES
               </h4>
               <button onclick="buyClickUpgradeKnife()" type="button" class="btn btn-danger">
-                50 <span class="mdi mdi-cheese"></span>
+                <span id="knifePrice">50</span><span class="mdi mdi-cheese"></span>
               </button>
               <p>
                 knife | +1
               </p>
-              <button type="button" class="btn btn-danger">
-                250 <span class="mdi mdi-cheese"></span>
+              <button onclick=" buyClickUpgradeDrill()" type="button" class="btn btn-danger">
+                <span id="drillPrice"></span> <span class="mdi mdi-cheese"></span>
               </button>
               <p>
-                drill | +5
+                drill | +15
               </p>
             </div>
             <div class="col-6">
@@ -97,10 +95,22 @@
                 CLICK STATS
               </h4>
               <p>
-                <span class="border">20</span> knives => <span class="border">20</span>
+                <span id="knifeAmount" class="border">
+                  20
+                </span>
+                <span> knives => </span>
+                <span id="knifePower" class="border">
+                  20
+                </span>
               </p>
               <p>
-                <span class="border">8</span> drills => <span class="border">45</span>
+                <span id="drillAmount" class="border">
+                  8
+                </span>
+                drills =>
+                <span id="drillPower" class="border">
+                  45
+                </span>
               </p>
             </div>
             <div class="col-6">
