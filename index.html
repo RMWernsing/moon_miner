@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"
+    defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <header>
+    <h1 class="text-center text-light pt-5">
+      Moon Miner
+    </h1>
+  </header>
+  <main class="text-center pt-5">
+    <img onclick="mine()" class="moon-size"
+      src="https://images.unsplash.com/photo-1479090793912-eb9929f4fdb2?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      alt="picture of the moon">
+    <div class="container">
+      <div class="row text-light justify-content-center">
+        <div class="col-2">
+          <div class="d-flex justify-content-between bg-warning p-2 fs-3">
+            <p>
+              +10
+            </p>
+            <span class="mdi mdi-cursor-default-click-outline"></span>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="d-flex justify-content-between bg-warning p-2 fs-2">
+            <span class="mdi mdi-cheese"></span>
+            <p id="cheeseWallet">
+              0
+            </p>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="d-flex justify-content-between bg-warning p-2 fs-3">
+            <span class="mdi mdi-timer-outline"></span>
+            <p>
+              +10
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row text-light p-5 mt-4 bg-warning justify-content-evenly">
+        <div class="col-5 upgrade-bg-color">
+          <div class="row">
+            <div class="col-6">
+              <h4>
+                CLICK UPGRADES
+              </h4>
+              <button onclick="buyClickUpgradeKnife()" type="button" class="btn btn-danger">
+                50 <span class="mdi mdi-cheese"></span>
+              </button>
+              <p>
+                knife | +1
+              </p>
+              <button type="button" class="btn btn-danger">
+                250 <span class="mdi mdi-cheese"></span>
+              </button>
+              <p>
+                drill | +5
+              </p>
+            </div>
+            <div class="col-6">
+              <h4>
+                AUTO UPGRADES
+              </h4>
+              <button type="button" class="btn btn-danger">
+                1k <span class="mdi mdi-cheese"></span>
+              </button>
+              <p>
+                mousetronaut | +10/3s
+              </p>
+              <button type="button" class="btn btn-danger">
+                50k <span class="mdi mdi-cheese"></span>
+              </button>
+              <p>
+                space station | +100/3s
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-5 upgrade-bg-color">
+          <div class="row">
+            <div class="col-6">
+              <h4>
+                CLICK STATS
+              </h4>
+              <p>
+                <span class="border">20</span> knives => <span class="border">20</span>
+              </p>
+              <p>
+                <span class="border">8</span> drills => <span class="border">45</span>
+              </p>
+            </div>
+            <div class="col-6">
+              <h4>
+                AUTO STATS
+              </h4>
+              <p>
+                <span class="border">2</span> mousestronauts <span class="mdi mdi-timer-outline"></span> <span
+                  class="border">20</span>
+              </p>
+              <p>
+                <span class="border">0</span> space stations <span class="mdi mdi-timer-outline"></span> <span
+                  class="border">0</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+
+
+  <script src="app.js"></script>
+</body>
+
+</html>
