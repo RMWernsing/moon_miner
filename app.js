@@ -29,7 +29,7 @@ let autoUpgrades = [
     name: 'space station',
     price: 10000,
     quantity: 0,
-    bonus: 100
+    bonus: 200
   }
 ]
 
@@ -199,7 +199,7 @@ function drawSpaceStationAmount() {
 
 function drawSpaceStationPower() {
   const spaceStationPowerElem = document.getElementById('spaceStationPower')
-  spaceStationPowerElem.innerText = `${autoUpgrades[1].quantity * 100}`
+  spaceStationPowerElem.innerText = `${autoUpgrades[1].quantity * 200}`
 }
 
 
